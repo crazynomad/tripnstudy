@@ -12,30 +12,30 @@ body{width:100%;height:100%;}
 
 .up-fadeout {
 	transform-origin:50% 100%;
-	-webkit-animation: MenuAnimOut1 .8s linear forwards;
-	-moz-animation: MenuAnimOut1 .8s linear forwards;
-	animation: MenuAnimOut1 .8s linear forwards;
+	-webkit-animation: MenuAnimOut1 .5s linear forwards;
+	-moz-animation: MenuAnimOut1 .5s linear forwards;
+	animation: MenuAnimOut1 .5s linear forwards;
 }
 
 .down-fadeout {
 	transform-origin:50% 0%;
-	-webkit-animation: MenuAnimOut3 .8s linear forwards;
-	-moz-animation: MenuAnimOut3 .8s linear forwards;
-	animation: MenuAnimOut3 .8s linear forwards;
+	-webkit-animation: MenuAnimOut3 .5s linear forwards;
+	-moz-animation: MenuAnimOut3 .5s linear forwards;
+	animation: MenuAnimOut3 .5s linear forwards;
 }
 
 .up-nextpage{
 	z-index:1000;
-	-webkit-animation: MenuAnimOut2 .8s linear forwards;
-	-moz-animation: MenuAnimOut2 .8s linear forwards;
-	animation: MenuAnimOut2 .8s linear forwards;
+	-webkit-animation: MenuAnimOut2 .5s linear forwards;
+	-moz-animation: MenuAnimOut2 .5s linear forwards;
+	animation: MenuAnimOut2 .5s linear forwards;
 }
 
 .down-nextpage{
 	z-index:1000;
-	-webkit-animation: MenuAnimOut4 .8s linear forwards;
-	-moz-animation: MenuAnimOut4 .8s linear forwards;
-	animation: MenuAnimOut4 .8s linear forwards;
+	-webkit-animation: MenuAnimOut4 .5s linear forwards;
+	-moz-animation: MenuAnimOut4 .5s linear forwards;
+	animation: MenuAnimOut4 .5s linear forwards;
 }
 
 @-webkit-keyframes MenuAnimOut1 {
