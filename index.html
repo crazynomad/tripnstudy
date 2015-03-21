@@ -9,25 +9,27 @@
 		<link rel="stylesheet" href="css/index.css"/>
 	</head>
 	<body ng-app="angular.tripnstudy" ng-controller="ForeignTripnstudyController">
-		<div id="info" style="position:absolute;z-index:999;"></div>
+		<div id="info" style="position:absolute;z-index:9999;"></div>
 		<div class="covercon"></div>
-		<div class="contentcon">
+		<ul class="nav navbtncon"><li class="active">年龄</li><li>线路</li><li>主题</li></ul>
+		<div class="contentcon" >
 			<div class="routecon">
-				<div ng-repeat="o in tsdatas" class="item" ng-class="{'currentpage':o.curr,'otherpage':!o.curr}" >
-					<img src="{{o.placeimgs[0]}}" style="width:100%;"/>
-					<table class="table infotable" cellpadding="0" cellspacing="0" style="color:#{{o.bgc}}">
-						<tr><td class="title">线路名称：</td><td class="content">{{o.name}}</td></tr>
-						<tr><td class="title">最大特色：</td><td class="content">{{o.features}}</td></tr>
-						<tr><td class="title">适合年龄：</td><td class="content">{{o.agedesc}}</td></tr>
-						<tr><td class="title">游学地点：</td><td class="content">{{o.placedesc}}</td></tr>
-						<tr><td class="title">特色主题：</td><td class="content">{{o.topicdesc}}</td></tr>
-						<tr><td class="title">主办机构：</td><td class="content">{{o.agency}}</td></tr>
-						<tr><td class="title">出发日期：</td><td class="content">{{o.date}}</td></tr>
-						<tr><td class="title">价格范围：</td><td class="content">{{o.price}}</td></tr>
-						</tr>
-					</table>
-					<button class="btn button" style="background-color:#{{o.bgc}}"><b>查看</b></button>
-				</div>
+					<div ng-repeat="o in tsdatas" class="item" ng-class="{'currentpage':o.curr,'otherpage':!o.curr}" >
+						<img src="{{o.placeimgs[0]}}" style="width:100%;"/>
+						<table class="table infotable" cellpadding="0" cellspacing="0" style="color:#{{o.bgc}}">
+							<tr><td class="title">线路名称：</td><td class="content">{{o.name}}</td></tr>
+							<tr><td class="title">最大特色：</td><td class="content">{{o.features}}</td></tr>
+							<tr><td class="title">适合年龄：</td><td class="content">{{o.agedesc}}</td></tr>
+							<tr><td class="title">游学地点：</td><td class="content">{{o.placedesc}}</td></tr>
+							<tr><td class="title">特色主题：</td><td class="content">{{o.topicdesc}}</td></tr>
+							<tr><td class="title">主办机构：</td><td class="content">{{o.agency}}</td></tr>
+							<tr><td class="title">出发日期：</td><td class="content">{{o.date}}</td></tr>
+							<tr><td class="title">价格范围：</td><td class="content">{{o.price}}</td></tr>
+							</tr>
+						</table>
+						<button class="btn button" style="background-color:#{{o.bgc}}"><b>查看</b></button>
+					</div>
+				
 				<!--
 				<div class="item currentpage" style="background-color:#004787;"></div>
 				<div class="item otherpage" style="background-color:#77b7ff;"></div>
@@ -78,12 +80,14 @@
 				
 				
 				var sx,sy,cx,cy=0;
+				var st,et=0;
 				var xdeg=0,ztrnas=0;
 				
 				$(".routecon").bind("touchstart",function(event){
 					var tar=$(this);
 					var e=event.originalEvent;
 					var tl=e.changedTouches;
+					st=new Date().valueOf();
 					if(tl.length==1){
 						cx=sx=tl[0].clientX;
 						cy=sy=tl[0].clientY;
@@ -103,9 +107,15 @@
 					var tl=e.changedTouches;
 					
 					var dy=(tl[0].clientY-sy);
+					et=new Date().valueOf();
+					
+					var diffy=0;
 					//-up +down
 					if(dy){
-						if(dy>0){
+						if((et-st)>100){
+							diffy=20
+						}
+						if(dy>diffy){
 							var tar=$(".currentpage");
 							var items=$(".item",$(".routecon"));
 							var last=$(items[(items.length-1)]);
@@ -115,7 +125,7 @@
 								tar.before(last.addClass("currentpage").removeClass("down-nextpage"));
 								tar.removeClass("currentpage").removeClass("down-fadeout").addClass("otherpage");
 							},800);
-						}else{
+						}else if(dy<-diffy){
 							var tar=$(".currentpage");
 							tar.next().removeClass("otherpage").addClass("up-nextpage");
 							tar.addClass("up-fadeout");
@@ -133,6 +143,37 @@
 				function stopEvent(e){
 					e.stopPropagation();
 					e.preventDefault();
+				}
+				
+				window.requestAnimFrame = function() {
+				  return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function(e, t) {
+				    return window.setTimeout(e, 1e3 / 60)
+				  };
+				}();
+				
+				$(".navbtncon li").click(function(){
+					$(".navbtncon li").removeClass("active");
+					$(this).addClass("active");
+					testdeg=0;
+					testrotate();
+				});
+				
+				var testdeg=0
+				
+				function testrotate(){
+					testdeg+=3;
+					if(testdeg<180){
+						if(testdeg==90){
+							console.log(90)
+							$(".routecon").addClass("revert");
+							//todo
+						}
+						$(".routecon").css("-webkit-transform","rotateY("+testdeg+"deg)");
+						requestAnimFrame(testrotate);
+					}else{
+						$(".routecon").removeClass("revert").css("-webkit-transform","rotateY(0deg)");
+					}
+					
 				}
 			
 		</script>
