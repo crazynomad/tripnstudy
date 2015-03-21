@@ -161,17 +161,21 @@
 				var testdeg=0
 				
 				function testrotate(){
-					testdeg+=3;
+					testdeg+=5;
 					if(testdeg<180){
 						if(testdeg==90){
-							console.log(90)
+							//console.log(90)
 							$(".routecon").addClass("revert");
 							//todo
 						}
 						$(".routecon").css("-webkit-transform","rotateY("+testdeg+"deg)");
 						requestAnimFrame(testrotate);
 					}else{
+						
 						$(".routecon").removeClass("revert").css("-webkit-transform","rotateY(0deg)");
+						$(".routecon").removeAttr("style");
+						
+						//alert(1)
 					}
 					
 				}
