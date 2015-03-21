@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>DEMO</title>
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<link rel="stylesheet" href="css/index.css"/>
+	</head>
+	<body ng-app="angular.tripnstudy" ng-controller="ForeignTripnstudyController">
+		<div id="info" style="position:absolute;z-index:999;"></div>
+		<div class="covercon"></div>
+		<div class="contentcon">
+			<div class="routecon">
+				{{test}}
+				<div ng-repeat="o in tsdatas" class="item" ng-class="{'currentpage':o.curr,'otherpage':!o.curr}" >
+					<img src="{{o.placeimgs[0]}}" style="width:100%;"/>
+					<table class="table infotable" cellpadding="0" cellspacing="0" style="color:#{{o.bgc}}">
+						<tr><td class="title">线路名称：</td><td class="content">{{o.name}}</td></tr>
+						<tr><td class="title">最大特色：</td><td class="content">{{o.features}}</td></tr>
+						<tr><td class="title">适合年龄：</td><td class="content">{{o.agedesc}}</td></tr>
+						<tr><td class="title">游学地点：</td><td class="content">{{o.placedesc}}</td></tr>
+						<tr><td class="title">特色主题：</td><td class="content">{{o.topicdesc}}</td></tr>
+						<tr><td class="title">主办机构：</td><td class="content">{{o.agency}}</td></tr>
+						<tr><td class="title">出发日期：</td><td class="content">{{o.date}}</td></tr>
+						<tr><td class="title">价格范围：</td><td class="content">{{o.price}}</td></tr>
+						</tr>
+					</table>
+					<button class="btn button" style="background-color:#{{o.bgc}}"><b>查看</b></button>
+				</div>
+				<!--
+				<div class="item currentpage" style="background-color:#004787;"></div>
+				<div class="item otherpage" style="background-color:#77b7ff;"></div>
+				<div class="item otherpage" style="background-color:#ca77ff;"></div>
+				<div class="item otherpage" style="background-color:#ff77b7;"></div>
+				<div class="item otherpage" style="background-color:#ff8d77;"></div>
+				-->
+			</div>
+		</div>
+		<script type="text/javascript" src="scripts/jquery.min.js"></script>
+		<script type="text/javascript" src="scripts/jgestures.min.js"></script>
+		<script type="text/javascript" src="scripts/angular-1.2.28.min.js"></script>
+		<script type="text/javascript" src="scripts/ui-bootstrap-tpls-0.12.0.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery.easing.js"></script>
+		
+		
+		
+		<script type="text/javascript">
+				var ua=angular.module("angular.tripnstudy",[]);
+				ua.run(["$rootScope",function($rs){
+					/*
+					 features:最大特色
+					 age：年龄序列
+					 agedesc：适合年龄
+					 place：地点序列
+					 placedesc：游学地点
+					 placeimgs：地点图片集
+					 topic：主题序列
+					 topicdesc：特色主题
+					 agency:主办机构
+					 date:出发日期
+					 price:价格范围
+					 * 
+					 * 
+					 * */
+					$rs.infodata=[
+						{"curr":true,"bgc":"004787","name":"美国西海岸科技创新课程","features":"我是特色我是特色1","age":1,"agedesc":"10~15岁","place":1,"placedesc":"纽约","placeimgs":["img/ts1.jpg"],"topic":1,"topicdesc":"我是主题我是主题1","agency":"我是机构我是机构1","date":"2015年12月31日","price":"10,000~50,000(RMB)"},
+						{"curr":false,"bgc":"00a0c2","name":"精英名校预备课程","features":"我是特色我是特色2","age":2,"agedesc":"15~18岁","place":2,"placedesc":"墨尔本","placeimgs":["img/ts2.jpg"],"topic":2,"topicdesc":"我是主题我是主题2","agency":"我是机构我是机构2","date":"2015年12月31日","price":"10,000~50,000(RMB)"},
+						{"curr":false,"bgc":"00a74d","name":"佛罗里达户外探索课程","features":"我是特色我是特色3","age":3,"agedesc":"18~22岁","place":3,"placedesc":"东京","placeimgs":["img/ts3.jpg"],"topic":3,"topicdesc":"我是主题我是主题3","agency":"我是机构我是机构3","date":"2015年12月31日","price":"10,000~50,000(RMB)"},
+						{"curr":false,"bgc":"a8171a","name":"哥伦比亚大学暑期学术课程","features":"我是特色我是特色4","age":4,"agedesc":"20~30岁","place":4,"placedesc":"洛杉矶","placeimgs":["img/ts4.jpg"],"topic":4,"topicdesc":"我是主题我是主题4","agency":"我是机构我是机构4","date":"2015年12月31日","price":"10,000~50,000(RMB)"},
+						{"curr":false,"bgc":"6a59a7","name":"子午线中心全球领导力课程","features":"我是特色我是特色5","age":5,"agedesc":"10~15岁","place":5,"placedesc":"纽约","placeimgs":["img/ts5.jpg"],"topic":5,"topicdesc":"我是主题我是主题5","agency":"我是机构我是机构5","date":"2015年12月31日","price":"10,000~50,000(RMB)"}
+					]
+				}]).controller("ForeignTripnstudyController",["$rootScope","$scope",function($rs,$s){
+					$s.tsdatas=$rs.infodata;
+					$.test="123"
+					console.log($s.tsdatas)
+				}])
+
+				
+				
+				var sx,sy,cx,cy=0;
+				var xdeg=0,ztrnas=0;
+				
+				$(".routecon").bind("touchstart",function(event){
+					var tar=$(this);
+					var e=event.originalEvent;
+					var tl=e.changedTouches;
+					if(tl.length==1){
+						cx=sx=tl[0].clientX;
+						cy=sy=tl[0].clientY;
+						
+						tar.bind("touchmove",stopEvent);
+						tar.bind("touchend",touchendFunc);
+					}else{
+						//tar.unbind("touchmove").unbind("touchend");
+					}
+				});
+				
+				
+				function touchendFunc(event){
+					
+					var tar=$(this);
+					var e=event.originalEvent;
+					var tl=e.changedTouches;
+					
+					var dy=(tl[0].clientY-sy);
+					//-up +down
+					if(dy){
+						if(dy>0){
+							var tar=$(".currentpage");
+							var items=$(".item",$(".routecon"));
+							var last=$(items[(items.length-1)]);
+							last.removeClass("otherpage").addClass("down-nextpage");
+							tar.addClass("down-fadeout");
+							setTimeout(function(){
+								tar.before(last.addClass("currentpage").removeClass("down-nextpage"));
+								tar.removeClass("currentpage").removeClass("down-fadeout").addClass("otherpage");
+							},800);
+						}else{
+							var tar=$(".currentpage");
+							tar.next().removeClass("otherpage").addClass("up-nextpage");
+							tar.addClass("up-fadeout");
+							setTimeout(function(){
+								tar.next().addClass("currentpage").removeClass("up-nextpage");
+								tar.removeClass("currentpage").removeClass("up-fadeout").addClass("otherpage").appendTo($(".routecon"));
+							},800);
+						}
+					}else{
+						return;
+					}
+					$(".routecon").unbind("touchend");
+				}
+				
+				function stopEvent(e){
+					e.stopPropagation();
+					e.preventDefault();
+				}
+			
+		</script>
+	</body>
+</html>
