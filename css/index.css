@@ -7,7 +7,7 @@ body{width:100%;height:100%;}
 .contentcon .routecon .uparrow{top:0;}
 .contentcon .routecon .downarrow{bottom:5%;}
 /*.revert{-webkit-transform:rotateY(180deg)}*/
-.item{position:absolute;width:100%;height:100%;top:0px;left:0px;}
+.item{position:absolute;width:100%;height:100%;top:0px;left:0px;background-color:#fff;}
 .currentpage{z-index:9;display:block;}
 .revert .currentpage{-webkit-transform:rotateY(-180deg)}
 .otherpage{z-index:1;top:100%;display:none;}
@@ -22,36 +22,36 @@ body{width:100%;height:100%;}
 
 .up-fadeout {
 	transform-origin:50% 100%;
-	-webkit-animation: MenuAnimOut1 .5s linear forwards;
-	-moz-animation: MenuAnimOut1 .5s linear forwards;
-	animation: MenuAnimOut1 .5s linear forwards;
+	-webkit-animation: MenuAnimOut1 .5s ease-out forwards;
+	-moz-animation: MenuAnimOut1 .5s ease-out forwards;
+	animation: MenuAnimOut1 .5s ease-out forwards;
 }
 
 .down-fadeout {
 	transform-origin:50% 0%;
-	-webkit-animation: MenuAnimOut3 .5s linear forwards;
-	-moz-animation: MenuAnimOut3 .5s linear forwards;
-	animation: MenuAnimOut3 .5s linear forwards;
+	-webkit-animation: MenuAnimOut3 .5s ease-out forwards;
+	-moz-animation: MenuAnimOut3 .5s ease-out forwards;
+	animation: MenuAnimOut3 .5s ease-out forwards;
 }
 
 .up-nextpage{
 	display:block !important;
 	z-index:10;
-	-webkit-animation: MenuAnimOut2 .5s linear forwards;
-	-moz-animation: MenuAnimOut2 .5s linear forwards;
-	animation: MenuAnimOut2 .5s linear forwards;
+	-webkit-animation: MenuAnimOut2 .5s cubic-bezier(0, .6, .0, .99) forwards;
+	-moz-animation: MenuAnimOut2 .5s cubic-bezier(0, .6, .0, .99) forwards;
+	animation: MenuAnimOut2 .5s cubic-bezier(0, .6, .0, .99) forwards;
 }
 
 .down-nextpage{
 	display:block !important;
 	z-index:10;
-	-webkit-animation: MenuAnimOut4 .5s linear forwards;
-	-moz-animation: MenuAnimOut4 .5s linear forwards;
-	animation: MenuAnimOut4 .5s linear forwards;
+	-webkit-animation: MenuAnimOut4 .5s cubic-bezier(0, .6, .0, .99) forwards;
+	-moz-animation: MenuAnimOut4 .5s cubic-bezier(0, .6, .0, .99) forwards;
+	animation: MenuAnimOut4 .5s cubic-bezier(0, .6, .0, .99) forwards;
 }
 
 @-webkit-keyframes MenuAnimOut1 {
-	55% {
+	50% {
 		-webkit-transform: rotateX(15deg) translateZ(0px);
 		opacity:0.2;
 	}
@@ -63,22 +63,19 @@ body{width:100%;height:100%;}
 
 @-webkit-keyframes MenuAnimOut2 {
 	0% {
-		top:100%;
-		opacity: 1;
-		-webkit-transform:translateZ(-500px);
-	},
-	50%{
 		top:50%;
+		opacity: 0;
+		-webkit-transform:translateZ(-200px);
 	}
 	100% {
 		-webkit-transform:translateZ(0px);
-		top:0;
+		top:0px;
 		opacity: 1;
 	}
 }
 
 @-webkit-keyframes MenuAnimOut3 {
-	55% {
+	50% {
 		-webkit-transform: rotateX(-15deg) translateZ(0px);
 		opacity:0.2;
 	}
@@ -90,16 +87,13 @@ body{width:100%;height:100%;}
 
 @-webkit-keyframes MenuAnimOut4 {
 	0% {
-		top:-100%;
-		opacity: 1;
-		-webkit-transform:translateZ(500px);
-	}
-	50%{
 		top:-50%;
+		opacity: 0;
+		-webkit-transform:translateZ(200px);
 	}
 	100% {
 		-webkit-transform:translateZ(0px);
-		top:0;
+		top:0px;
 		opacity: 1;
 	}
 }
