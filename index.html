@@ -11,10 +11,13 @@
 	<body ng-app="angular.tripnstudy" ng-controller="ForeignTripnstudyController">
 		<div id="info" style="position:absolute;z-index:9999;"></div>
 		<div class="covercon"></div>
-		<ul class="nav navbtncon"><li class="active">年龄</li><li>线路</li><li>主题</li></ul>
+		<ul class="nav navbtncon">
+			<li ng-repeat="o in tabs" ng-class="{'active':o.isActive,' ':o.isActive}" ng-click="sortbytype(o)">{{o.text}}</li>
+		</ul>
 		<div class="contentcon" >
 			<div class="routecon">
-					<div ng-repeat="o in tsdatas" class="item" ng-class="{'currentpage':o.curr,'otherpage':!o.curr}" >
+				<div class="arrowcon uparrow"><span class="glyphicon glyphicon-menu-up"></span></div>
+					<div ng-repeat="o in tsdatas" class="item" ng-class="{'currentpage':o.curr,'otherpage':!o.curr}" index="{{$index}}">
 						<img src="{{o.placeimgs[0]}}" style="width:100%;"/>
 						<table class="table infotable" cellpadding="0" cellspacing="0" style="color:#{{o.bgc}}">
 							<tr><td class="title">线路名称：</td><td class="content">{{o.name}}</td></tr>
@@ -37,6 +40,8 @@
 				<div class="item otherpage" style="background-color:#ff77b7;"></div>
 				<div class="item otherpage" style="background-color:#ff8d77;"></div>
 				-->
+				
+				<div class="arrowcon downarrow"><i class="glyphicon glyphicon-menu-down"></i></div>
 			</div>
 		</div>
 		<script type="text/javascript" src="scripts/jquery.min.js"></script>
@@ -66,27 +71,94 @@
 					 * 
 					 * */
 					$rs.infodata=[
-						{"curr":true,"bgc":"004787","name":"美国西海岸科技创新课程","features":"我是特色我是特色1","age":1,"agedesc":"10~15岁","place":1,"placedesc":"纽约","placeimgs":["img/ts1.jpg"],"topic":1,"topicdesc":"我是主题我是主题1","agency":"我是机构我是机构1","date":"2015年12月31日","price":"10,000~50,000(RMB)"},
-						{"curr":false,"bgc":"00a0c2","name":"精英名校预备课程","features":"我是特色我是特色2","age":2,"agedesc":"15~18岁","place":2,"placedesc":"墨尔本","placeimgs":["img/ts2.jpg"],"topic":2,"topicdesc":"我是主题我是主题2","agency":"我是机构我是机构2","date":"2015年12月31日","price":"10,000~50,000(RMB)"},
-						{"curr":false,"bgc":"00a74d","name":"佛罗里达户外探索课程","features":"我是特色我是特色3","age":3,"agedesc":"18~22岁","place":3,"placedesc":"东京","placeimgs":["img/ts3.jpg"],"topic":3,"topicdesc":"我是主题我是主题3","agency":"我是机构我是机构3","date":"2015年12月31日","price":"10,000~50,000(RMB)"},
-						{"curr":false,"bgc":"a8171a","name":"哥伦比亚大学暑期学术课程","features":"我是特色我是特色4","age":4,"agedesc":"20~30岁","place":4,"placedesc":"洛杉矶","placeimgs":["img/ts4.jpg"],"topic":4,"topicdesc":"我是主题我是主题4","agency":"我是机构我是机构4","date":"2015年12月31日","price":"10,000~50,000(RMB)"},
-						{"curr":false,"bgc":"6a59a7","name":"子午线中心全球领导力课程","features":"我是特色我是特色5","age":5,"agedesc":"10~15岁","place":5,"placedesc":"纽约","placeimgs":["img/ts5.jpg"],"topic":5,"topicdesc":"我是主题我是主题5","agency":"我是机构我是机构5","date":"2015年12月31日","price":"10,000~50,000(RMB)"}
-					]
+						{"curr":true,"bgc":"004787","name":"美国西海岸科技创新课程","features":"我是特色我是特色1","age":1,"agedesc":"10~15岁","place":5,"placedesc":"纽约","placeimgs":["img/ts1.jpg"],"topic":2,"topicdesc":"我是主题我是主题1","agency":"我是机构我是机构1","date":"2015年12月31日","price":"10,000~50,000(RMB)"},
+						{"curr":false,"bgc":"00a0c2","name":"精英名校预备课程","features":"我是特色我是特色2","age":2,"agedesc":"15~18岁","place":4,"placedesc":"墨尔本","placeimgs":["img/ts2.jpg"],"topic":4,"topicdesc":"我是主题我是主题2","agency":"我是机构我是机构2","date":"2015年12月31日","price":"10,000~50,000(RMB)"},
+						{"curr":false,"bgc":"00a74d","name":"佛罗里达户外探索课程","features":"我是特色我是特色3","age":3,"agedesc":"18~22岁","place":3,"placedesc":"东京","placeimgs":["img/ts3.jpg"],"topic":1,"topicdesc":"我是主题我是主题3","agency":"我是机构我是机构3","date":"2015年12月31日","price":"10,000~50,000(RMB)"},
+						{"curr":false,"bgc":"a8171a","name":"哥伦比亚大学暑期学术课程","features":"我是特色我是特色4","age":4,"agedesc":"20~30岁","place":2,"placedesc":"洛杉矶","placeimgs":["img/ts4.jpg"],"topic":3,"topicdesc":"我是主题我是主题4","agency":"我是机构我是机构4","date":"2015年12月31日","price":"10,000~50,000(RMB)"},
+						{"curr":false,"bgc":"6a59a7","name":"子午线中心全球领导力课程","features":"我是特色我是特色5","age":5,"agedesc":"10~15岁","place":1,"placedesc":"纽约","placeimgs":["img/ts5.jpg"],"topic":5,"topicdesc":"我是主题我是主题5","agency":"我是机构我是机构5","date":"2015年12月31日","price":"10,000~50,000(RMB)"}
+					];
+					$rs.tabs=[
+						{"text":"年龄","type":"age","isActive":true},
+						{"text":"线路","type":"place","isActive":false},
+						{"text":"主题","type":"topic","isActive":false}
+					];
 				}]).controller("ForeignTripnstudyController",["$rootScope","$scope",function($rs,$s){
 					$s.tsdatas=$rs.infodata;
-					console.log($s.tsdatas)
-				}])
+					$s.tabs=$rs.tabs;
+					$s.sortbytype=function(o){
+						angular.forEach($s.tabs,function(v,i){v.isActive=false;});
+						o.isActive=true;
+						var testdeg=0;
+						testrotate();
+						
+						
+						function testrotate(){
+							testdeg+=5;
+							if(testdeg<180){
+								if(testdeg==90){
+									//console.log(90)
+									$(".routecon").addClass("revert");
+									//todo
+									$s.tsdatas=sortbycata(o.type,$s.tsdatas);
+									angular.forEach($s.tsdatas,function(v,i){if(i){v.curr=false}else{v.curr=true;}});
+									$s.$apply();
+									var items=$(".routecon .item").removeClass("currentpage").remove("otherpage");
+									angular.forEach($s.tsdatas,function(v,i){if(i){$(items[i]).addClass("otherpage");}else{$(items[i]).addClass("currentpage");}});
+								}
+								$(".routecon").css("-webkit-transform","rotateY("+testdeg+"deg)");
+								requestAnimFrame(testrotate);
+							}else{
+								$(".routecon").removeClass("revert").removeAttr("style");
+							}
+						}
+						
+					}
+					
+					$(".routecon").bind("customevent",function(event,index,dir){
+							angular.forEach($s.infodata,function(v,i){v.curr=false;});
+							index=parseInt(index);
+							if(dir=="up"){
+								index++;
+							}else if(dir=="down"){
+								index--;
+							}
+							var curr=$s.infodata[index];
+							if(curr){
+								curr.curr=true;
+							}
+							$s.$apply();	
+					});
+				}]);
 
 				
 				
 				var sx,sy,cx,cy=0;
 				var st,et=0;
 				var xdeg=0,ztrnas=0;
-				
+				var tarindex=0;
 				$(".routecon").bind("touchstart",function(event){
 					var tar=$(this);
 					var e=event.originalEvent;
 					var tl=e.changedTouches;
+					tarindex=$(event.target).parents(".item").attr("index");
+					if(tarindex===undefined){
+						tarindex=$(event.target).attr("index");
+					}
+					
+					tarindex=parseInt(tarindex)
+					if(tarindex){
+						if(tarindex<4){
+							$(".contentcon .routecon .uparrow").show();
+							$(".contentcon .routecon .downarrow").show();
+						}else{
+							$(".contentcon .routecon .uparrow").show();
+						}
+					}else{
+						$(".contentcon .routecon .downarrow").show();
+						
+					}
+					
+					
 					st=new Date().valueOf();
 					if(tl.length==1){
 						cx=sx=tl[0].clientX;
@@ -99,16 +171,15 @@
 					}
 				});
 				
-				
 				function touchendFunc(event){
-					
 					var tar=$(this);
 					var e=event.originalEvent;
 					var tl=e.changedTouches;
-					
 					var dy=(tl[0].clientY-sy);
 					et=new Date().valueOf();
 					
+					$(".contentcon .routecon .uparrow").hide();
+					$(".contentcon .routecon .downarrow").hide();
 					var diffy=0;
 					//-up +down
 					if(dy){
@@ -116,23 +187,32 @@
 							diffy=20
 						}
 						if(dy>diffy){
-							var tar=$(".currentpage");
-							var items=$(".item",$(".routecon"));
-							var last=$(items[(items.length-1)]);
-							last.removeClass("otherpage").addClass("down-nextpage");
-							tar.addClass("down-fadeout");
-							setTimeout(function(){
-								tar.before(last.addClass("currentpage").removeClass("down-nextpage"));
-								tar.removeClass("currentpage").removeClass("down-fadeout").addClass("otherpage");
-							},800);
+							if(tarindex){
+								var tar=$(".currentpage");
+								var index=tar.attr("index");
+								tar.prev().removeClass("otherpage").addClass("down-nextpage");
+								tar.addClass("down-fadeout");
+								setTimeout(function(){
+									//tar.before(last.addClass("currentpage").removeClass("down-nextpage"));
+									tar.prev().addClass("currentpage").removeClass("down-nextpage");
+									tar.removeClass("currentpage").removeClass("down-fadeout").addClass("otherpage");
+									$(".routecon").trigger("customevent",[index,"down"]);
+								},500);
+							}
+							
 						}else if(dy<-diffy){
-							var tar=$(".currentpage");
-							tar.next().removeClass("otherpage").addClass("up-nextpage");
-							tar.addClass("up-fadeout");
-							setTimeout(function(){
-								tar.next().addClass("currentpage").removeClass("up-nextpage");
-								tar.removeClass("currentpage").removeClass("up-fadeout").addClass("otherpage").appendTo($(".routecon"));
-							},500);
+							if(tarindex<4){
+								var tar=$(".currentpage");
+								var index=tar.attr("index");
+								tar.next().removeClass("otherpage").addClass("up-nextpage");
+								tar.addClass("up-fadeout");
+								setTimeout(function(){
+									tar.next().addClass("currentpage").removeClass("up-nextpage");
+									tar.removeClass("currentpage").removeClass("up-fadeout").addClass("otherpage")//.appendTo($(".routecon"));
+									$(".routecon").trigger("customevent",[index,"up"]);
+								},500);
+							}
+							
 						}
 					}else{
 						return;
@@ -145,40 +225,42 @@
 					e.preventDefault();
 				}
 				
+				function resetDataorder(o){
+					
+				}
+				
 				window.requestAnimFrame = function() {
 				  return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function(e, t) {
 				    return window.setTimeout(e, 1e3 / 60)
 				  };
 				}();
 				
-				$(".navbtncon li").click(function(){
-					$(".navbtncon li").removeClass("active");
-					$(this).addClass("active");
-					testdeg=0;
-					testrotate();
-				});
 				
-				var testdeg=0
+				//var testdeg=0
 				
-				function testrotate(){
-					testdeg+=5;
-					if(testdeg<180){
-						if(testdeg==90){
-							//console.log(90)
-							$(".routecon").addClass("revert");
-							//todo
+				
+				function sortbycata(type,data){
+					for(var i=0;i<(data.length-1);i++){
+						for(var j=1;j<(data.length-i);j++){
+							var _l=parseInt(data[j-1][type]);
+							var _r=parseInt(data[j][type]);
+							
+							var _temp
+							if(_l>_r){
+								_temp=data[j-1];
+								data[j-1]=data[j];
+								data[j]=_temp;
+							}
 						}
-						$(".routecon").css("-webkit-transform","rotateY("+testdeg+"deg)");
-						requestAnimFrame(testrotate);
-					}else{
-						
-						$(".routecon").removeClass("revert").css("-webkit-transform","rotateY(0deg)");
-						$(".routecon").removeAttr("style");
-						
-						//alert(1)
 					}
-					
+					return data;
 				}
+				
+				
+				
+				$(document).ready(function(){
+					var tabs=$(".navbtncon li").css("line-height",$(".navbtncon").height()+"px");
+				});
 			
 		</script>
 	</body>

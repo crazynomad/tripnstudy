@@ -1,8 +1,11 @@
 html *{margin:0;padding:0;font-size:1em;}
 
 body{width:100%;height:100%;}
-.contentcon{width:100%;height:100%;position:absolute;top:30px;-webkit-perspective:1000px;perspective:1000px;}
+.contentcon{width:100%;height:100%;position:absolute;top:5%;-webkit-perspective:1000px;perspective:1000px;}
 .contentcon .routecon{width:100%;height:100%;}
+.contentcon .routecon .arrowcon{position:absolute;z-index:9999;width:100%;height:30px;text-align:center;display:none;}
+.contentcon .routecon .uparrow{top:0;}
+.contentcon .routecon .downarrow{bottom:5%;}
 /*.revert{-webkit-transform:rotateY(180deg)}*/
 .item{position:absolute;width:100%;height:100%;top:0px;left:0px;}
 .currentpage{z-index:9;display:block;}
@@ -10,8 +13,8 @@ body{width:100%;height:100%;}
 .otherpage{z-index:1;top:100%;display:none;}
 .infotable{width:100%;color:#fff;}
 
-.navbtncon{width:100%;position:fixed;top:0px;z-index:9999;background-color:#fff;list-style:none;}
-.navbtncon li{float:left;width:33.3%;line-height:30px;text-align:center}
+.navbtncon{width:100%;position:fixed;top:0px;z-index:9999;background-color:#fff;list-style:none;height:5%;}
+.navbtncon li{float:left;width:33.3%;height:100%;text-align:center;display:table-cell}
 .navbtncon li.active{background-color:#aaa;color:#fff;}
 
 
