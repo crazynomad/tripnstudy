@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimal-ui">
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title>DEMO</title>
@@ -10,11 +10,39 @@
 	</head>
 	<body ng-app="angular.tripnstudy" ng-controller="ForeignTripnstudyController">
 		<div id="info" style="position:absolute;z-index:9999;"></div>
-		<div class="covercon"></div>
-		<ul class="nav navbtncon">
-			<li ng-repeat="o in tabs" ng-class="{'active':o.isActive,' ':o.isActive}" ng-click="sortbytype(o)">{{o.text}}</li>
-		</ul>
+		<div class="covercon" style="position:absolute;top:0px;z-index:999;">
+			<h1>2015年20个</h1>
+			<h1>最赞的美国游学</h1>
+			<p class="line"></p>
+			<div class="tipcon">
+				<span>By 爸妈营  </span><button>关注</button>
+			</div>
+			<div class="routetab">
+				<table cellpadding="0" cellspacing="0"><tr><td colspan="5">6-60岁</td></tr><td>亲子</td><td>幼儿园</td><td>小学</td><td>初中</td><td>高中</td></tr></table>
+				<span class="checkbtncon" type="age"><b>查看</b></span>	
+			</div>
+			<div class="routetab">
+				<table cellpadding="0" cellspacing="0"><tr><td colspan="5">20个游学地点</td></tr><tr><td>哈佛</td><td>斯坦福</td><td>哥伦比亚</td><td>硅谷</td><td>白宫</td></tr></table>
+				<span class="checkbtncon" type="place"><b>查看</b></span>
+			</div>
+			<div class="routetab">
+				<table cellpadding="0" cellspacing="0"><tr><td colspan="5">26种特色主题</td></tr><tr><td>英语提高</td><td>留学准备</td><td>亲子</td><td>专项学习</td></tr></table>
+				<span class="checkbtncon" type="topic"><b>查看</b></span>
+			</div>
+				
+			<div class="bottompart">
+				<p style="position:relative;"><span>合作伙伴</span><span style="position:absolute;width:100%;height:50%;top:0px;left:0px;border-bottom:solid 1px #fff;"></span></p>
+				<p>斯坦福大学</p>
+				<p>哈弗大学</p>
+				<p>环识国际</p>
+				<p>英孚教育</p>
+			</div>
+		</div>
+
 		<div class="contentcon" >
+			<ul class="nav navbtncon">
+				<li ng-repeat="o in tabs" ng-class="{'active':o.isActive,' ':o.isActive}" ng-click="sortbytype(o)">{{o.text}}</li>
+			</ul>
 			<div class="routecon">
 				<div class="arrowcon uparrow"><span class="glyphicon glyphicon-menu-up"></span></div>
 					<div ng-repeat="o in tsdatas" class="item" ng-class="{'currentpage':o.curr,'otherpage':!o.curr}" index="{{$index}}">
@@ -127,7 +155,13 @@
 								curr.curr=true;
 							}
 							$s.$apply();	
-					});
+					}).bind("entercontent",function(event,type){
+						$.tsdatas=sortbycata(type,$s.tsdatas);
+						angular.forEach($s.tsdatas,function(v,i){if(i){v.curr=false}else{v.curr=true;}});
+						$s.$apply();
+					})
+					
+					
 				}]);
 
 				
@@ -240,6 +274,7 @@
 				
 				
 				function sortbycata(type,data){
+					console.log(data)
 					for(var i=0;i<(data.length-1);i++){
 						for(var j=1;j<(data.length-i);j++){
 							var _l=parseInt(data[j-1][type]);
@@ -253,6 +288,7 @@
 							}
 						}
 					}
+					
 					return data;
 				}
 				
@@ -260,6 +296,20 @@
 				
 				$(document).ready(function(){
 					var tabs=$(".navbtncon li").css("line-height",$(".navbtncon").height()+"px");
+
+					$(".routetab").each(function(i,v){
+						var tar=$(this);
+						var btn=$(".checkbtncon",tar)
+						btn.css("left",((tar.outerWidth()-btn.outerWidth())/2)).bind("touchstart",function(){
+							$("b",$(this)).addClass("hover");
+						}).bind("touchend",function(){
+							$("b",$(this)).removeClass("hover");
+						}).click(function(){
+							var _t=$(this);
+							$(".routecon").trigger("entercontent",[_t.attr("type")]);
+							$(".covercon").hide();
+						})
+					})
 				});
 			
 		</script>

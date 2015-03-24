@@ -1,8 +1,31 @@
 html *{margin:0;padding:0;font-size:1em;}
 
 body{width:100%;height:100%;}
-.contentcon{width:100%;height:100%;position:absolute;top:5%;-webkit-perspective:1000px;perspective:1000px;}
-.contentcon .routecon{width:100%;height:100%;}
+
+.covercon{width:100%;padding:5%;background-color:#a51c30;text-align:center;min-height:100%;}
+h1{font-size:2em;color:#fff;}
+p.line{width:100%;height:1px;background-color:#fff;margin:15px 0;}
+.tipcon{margin-bottom:20px;}
+.tipcon span{color:#fff;line-height:20px;font-size:1.4em;margin-right:10px;vertical-align:middle;}
+.tipcon button{background:none;border:none;line-height:20px;border-radius:0;background-color:#32b332;color:#fff;padding:0 10px;vertical-align:middle;}
+
+.routetab{border:solid 2px #fff;margin-bottom:40px;position:relative;}
+.routetab table{width:80%;margin:10px 10% 30px;text-align:center;font-size:1.4em;color:#fff;}
+.routetab table td{padding:5px 0}
+
+
+.checkbtncon{padding:0 20px;position:absolute;bottom:-13px;background-color:#a51c30;}
+.checkbtncon b{line-height:26px;background-color:#fff;color:#a51c30;padding:0px 15px;display:block;}
+.checkbtncon b.hover{background-color:#32b332;color:#fff;}
+
+
+.bottompart{color:#fff;}
+.bottompart p{margin:0;width:60%;margin:auto;text-align:center;line-height:20px;}
+
+
+.checkbtn{line-height:30px;position:absolute;bottom:-15px;left:50%;background-color:#fff;color:#a51c30;padding:0px 15px;}
+.contentcon{width:100%;min-height:100%;position:absolute;top:0;-webkit-perspective:1000px;perspective:1000px;}
+.contentcon .routecon{width:100%;min-height:95%;position:absolute;top:5%;}
 .contentcon .routecon .arrowcon{position:absolute;z-index:9999;width:100%;height:30px;text-align:center;display:none;}
 .contentcon .routecon .uparrow{top:0;}
 .contentcon .routecon .downarrow{bottom:5%;}
