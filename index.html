@@ -17,17 +17,17 @@
 			<div class="tipcon">
 				<span>By 爸妈营  </span><button>关注</button>
 			</div>
-			<div class="routetab">
+			<div class="routetab"  type="age">
 				<table cellpadding="0" cellspacing="0"><tr><td colspan="5">6-60岁</td></tr><td>亲子</td><td>幼儿园</td><td>小学</td><td>初中</td><td>高中</td></tr></table>
-				<span class="checkbtncon" type="age"><b>查看</b></span>	
+				<span class="checkbtncon"><b>查看</b></span>	
 			</div>
-			<div class="routetab">
+			<div class="routetab" type="place">
 				<table cellpadding="0" cellspacing="0"><tr><td colspan="5">20个游学地点</td></tr><tr><td>哈佛</td><td>斯坦福</td><td>哥伦比亚</td><td>硅谷</td><td>白宫</td></tr></table>
-				<span class="checkbtncon" type="place"><b>查看</b></span>
+				<span class="checkbtncon"><b>查看</b></span>
 			</div>
-			<div class="routetab">
+			<div class="routetab"  type="topic">
 				<table cellpadding="0" cellspacing="0"><tr><td colspan="5">26种特色主题</td></tr><tr><td>英语提高</td><td>留学准备</td><td>亲子</td><td>专项学习</td></tr></table>
-				<span class="checkbtncon" type="topic"><b>查看</b></span>
+				<span class="checkbtncon"><b>查看</b></span>
 			</div>
 				
 			<div class="bottompart">
@@ -38,11 +38,11 @@
 				<p>英孚教育</p>
 			</div>
 		</div>
-
+		<ul class="nav navbtncon">
+				<li ng-repeat="o in tabs" ng-class="{'active':o.isActive,' ':o.isActive}" class="{{o.class}}" ng-click="sortbytype(o)">{{o.text}}</li>
+		</ul>
 		<div class="contentcon" >
-			<ul class="nav navbtncon">
-				<li ng-repeat="o in tabs" ng-class="{'active':o.isActive,' ':o.isActive}" ng-click="sortbytype(o)">{{o.text}}</li>
-			</ul>
+			
 			<div class="routecon">
 				<div class="arrowcon uparrow"><span class="glyphicon glyphicon-menu-up"></span></div>
 					<div ng-repeat="o in tsdatas" class="item" ng-class="{'currentpage':o.curr,'otherpage':!o.curr}" index="{{$index}}">
@@ -106,8 +106,8 @@
 						{"curr":false,"bgc":"6a59a7","name":"子午线中心全球领导力课程","features":"我是特色我是特色5","age":5,"agedesc":"10~15岁","place":1,"placedesc":"纽约","placeimgs":["img/ts5.jpg"],"topic":5,"topicdesc":"我是主题我是主题5","agency":"我是机构我是机构5","date":"2015年12月31日","price":"10,000~50,000(RMB)"}
 					];
 					$rs.tabs=[
-						{"text":"年龄","type":"age","isActive":true},
-						{"text":"线路","type":"place","isActive":false},
+						{"text":"适合年龄","type":"age","isActive":true},
+						{"text":"游学地点","type":"place","isActive":false,"class":"margin"},
 						{"text":"主题","type":"topic","isActive":false}
 					];
 				}]).controller("ForeignTripnstudyController",["$rootScope","$scope",function($rs,$s){
@@ -295,8 +295,12 @@
 				
 				
 				$(document).ready(function(){
-					var tabs=$(".navbtncon li").css("line-height",$(".navbtncon").height()+"px");
-
+					var tabs=$(".navbtncon li").css("line-height",(document.documentElement.clientHeight*0.05)+"px");
+					
+					//$(".covercon").bind("touchmove",function(e){
+						//e.stopPropagation();
+					//});
+					
 					$(".routetab").each(function(i,v){
 						var tar=$(this);
 						var btn=$(".checkbtncon",tar)
@@ -304,11 +308,15 @@
 							$("b",$(this)).addClass("hover");
 						}).bind("touchend",function(){
 							$("b",$(this)).removeClass("hover");
-						}).click(function(){
+						});
+						$(this).click(function(){
 							var _t=$(this);
 							$(".routecon").trigger("entercontent",[_t.attr("type")]);
+							$(window).scrollTop(0)
 							$(".covercon").hide();
-						})
+							$(".navbtncon").show();
+							$(".contentcon").show();
+						});
 					})
 				});
 			

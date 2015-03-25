@@ -1,4 +1,4 @@
-html *{margin:0;padding:0;font-size:1em;}
+html *{margin:0;padding:0;font-size:1.05em;}
 
 body{width:100%;height:100%;}
 
@@ -6,11 +6,11 @@ body{width:100%;height:100%;}
 h1{font-size:2em;color:#fff;}
 p.line{width:100%;height:1px;background-color:#fff;margin:15px 0;}
 .tipcon{margin-bottom:20px;}
-.tipcon span{color:#fff;line-height:20px;font-size:1.4em;margin-right:10px;vertical-align:middle;}
+.tipcon span{color:#fff;line-height:20px;margin-right:10px;vertical-align:middle;}
 .tipcon button{background:none;border:none;line-height:20px;border-radius:0;background-color:#32b332;color:#fff;padding:0 10px;vertical-align:middle;}
 
 .routetab{border:solid 2px #fff;margin-bottom:40px;position:relative;}
-.routetab table{width:80%;margin:10px 10% 30px;text-align:center;font-size:1.4em;color:#fff;}
+.routetab table{width:80%;margin:10px 10% 30px;text-align:center;color:#fff;}
 .routetab table td{padding:5px 0}
 
 
@@ -24,22 +24,29 @@ p.line{width:100%;height:1px;background-color:#fff;margin:15px 0;}
 
 
 .checkbtn{line-height:30px;position:absolute;bottom:-15px;left:50%;background-color:#fff;color:#a51c30;padding:0px 15px;}
-.contentcon{width:100%;min-height:100%;position:absolute;top:0;-webkit-perspective:1000px;perspective:1000px;}
-.contentcon .routecon{width:100%;min-height:95%;position:absolute;top:5%;}
+.contentcon{width:100%;min-height:100%;position:absolute;top:0;-webkit-perspective:1000px;perspective:1000px;background-color:#f2f2f2;display:none;}
+.contentcon .routecon{width:100%;min-height:95%;position:absolute;top:60px;}
 .contentcon .routecon .arrowcon{position:absolute;z-index:9999;width:100%;height:30px;text-align:center;display:none;}
 .contentcon .routecon .uparrow{top:0;}
 .contentcon .routecon .downarrow{bottom:5%;}
 /*.revert{-webkit-transform:rotateY(180deg)}*/
-.item{position:absolute;width:100%;height:100%;top:0px;left:0px;background-color:#fff;}
+.item{position:absolute;width:100%;height:100%;top:0px;left:0px;background-color:#f2f2f2;}
 .currentpage{z-index:9;display:block;}
-.revert .currentpage{-webkit-transform:rotateY(-180deg)}
+.revert .currentpage{-webkit-transform:rotateY(-180deg);}
 .otherpage{z-index:1;top:100%;display:none;}
-.infotable{width:100%;color:#fff;}
 
-.navbtncon{width:100%;position:fixed;top:0px;z-index:9999;background-color:#fff;list-style:none;height:5%;}
-.navbtncon li{float:left;width:33.3%;height:100%;text-align:center;display:table-cell}
-.navbtncon li.active{background-color:#aaa;color:#fff;}
+@media only screen and (min-device-height : 500px) and (max-device-height : 600px){
+	.infotable{width:100%;color:#fff;font-size:0.6em;}
+	.infotable td{padding-top:5px;padding-bottom:5px;}
+}
+@media only screen and (min-device-height : 601px) and (max-device-height : 660px){
+	.infotable{width:100%;color:#fff;font-size:0.8em;}
+}
 
+
+.navbtncon{width:100%;padding:5% 10%;position:absolute;top:0px;z-index:9999;background-color:#f2f2f2;list-style:none;display:none;}
+.navbtncon li{float:left;width:26.6%;height:100%;text-align:center;display:table-cell;background-color:#a51c30;color:#fff;}
+.navbtncon li.margin{margin:0 10%;}
 
 .button{width:90%;color:#fff;margin-left:5%;}
 
