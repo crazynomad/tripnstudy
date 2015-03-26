@@ -11,11 +11,14 @@
 	<body ng-app="angular.tripnstudy" ng-controller="ForeignTripnstudyController">
 		<div id="info" style="position:absolute;z-index:9999;"></div>
 		<div class="covercon" style="position:absolute;top:0px;z-index:999;">
+			<div class="coverlayer"></div>
+			<img class="qrcode" src="img/qrcode.jpg" />
+			
 			<h1>2015年20个</h1>
 			<h1>最赞的美国游学</h1>
 			<p class="line"></p>
 			<div class="tipcon">
-				<span>By 爸妈营  </span><button>关注</button>
+				<span>By 爸妈营  </span><button id="addbtn">关注</button>
 			</div>
 			<div class="routetab"  type="age">
 				<table cellpadding="0" cellspacing="0"><tr><td colspan="5">6-60岁</td></tr><td>亲子</td><td>幼儿园</td><td>小学</td><td>初中</td><td>高中</td></tr></table>
@@ -32,7 +35,7 @@
 				
 			<div class="bottompart">
 				<p style="position:relative;">
-					<span style="display:block;width:40%;margin:auto;background-color:#a51c30;position:relative;z-index:9999;">合作伙伴</span>
+					<span style="display:block;width:40%;margin:auto;background-color:#a51c30;position:relative;z-index:99;">合作伙伴</span>
 					<span style="position:absolute;width:100%;height:50%;top:0px;left:0px;border-bottom:solid 1px #fff;"></span>
 				</p>
 				<p>斯坦福大学</p>
@@ -283,7 +286,8 @@
 				
 				
 				$(document).ready(function(){
-					var wh=document.documentElement.clientHeight
+					var wh=document.documentElement.clientHeight;
+					var ww=document.documentElement.clientWidth;
 					var tabs=$(".navbtncon li").css("line-height",(wh*0.05)+"px");
 					var tabcon=$(".navbtncon");
 					$(".checkbtn,.zanbbtn").css("line-height",(wh*0.05)+"px");
@@ -351,7 +355,15 @@
 							$(".navbtncon").show();
 							$(".contentcon").show();
 						});
-					})
+					});
+					
+					
+					$(".coverlayer").click(function(){$(this).hide();$(".qrcode").hide();});
+					$(".qrcode").click(function(){$(this).hide();$(".coverlayer").hide();});
+					$("#addbtn").click(function(){
+						$(".coverlayer").height($(".covercon").outerHeight()).show();
+						$(".qrcode").css({"top":(wh-0.4*ww)/2}).show();
+					});
 				});
 			
 		</script>
