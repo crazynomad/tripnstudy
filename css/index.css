@@ -23,24 +23,27 @@ p.line{width:100%;height:1px;background-color:#fff;margin:15px 0;}
 .bottompart p{margin:0;width:60%;margin:auto;text-align:center;line-height:20px;}
 
 
-.checkbtn{line-height:30px;position:absolute;bottom:-15px;left:50%;background-color:#fff;color:#a51c30;padding:0px 15px;}
+
 .contentcon{width:100%;min-height:100%;position:absolute;top:0;-webkit-perspective:1000px;perspective:1000px;background-color:#f2f2f2;display:none;}
-.contentcon .routecon{width:100%;min-height:95%;position:absolute;top:60px;}
+.contentcon .routecon{width:100%;position:absolute;top:60px;}
 .contentcon .routecon .arrowcon{position:absolute;z-index:9999;width:100%;height:30px;text-align:center;display:none;}
 .contentcon .routecon .uparrow{top:0;}
-.contentcon .routecon .downarrow{bottom:5%;}
+.contentcon .routecon .downarrow{bottom:0;}
 /*.revert{-webkit-transform:rotateY(180deg)}*/
 .item{position:absolute;width:100%;height:100%;top:0px;left:0px;background-color:#f2f2f2;}
 .currentpage{z-index:9;display:block;}
 .revert .currentpage{-webkit-transform:rotateY(-180deg);}
 .otherpage{z-index:1;top:100%;display:none;}
 
+h2.routename{font-size:1.6em;margin:5% 0 2%;padding-left:8px;margin-left:5%;}
+table.infotable{color:#333;width:90%;margin-left:5%;}
 @media only screen and (min-device-height : 500px) and (max-device-height : 600px){
-	.infotable{width:100%;color:#fff;font-size:0.6em;}
-	.infotable td{padding-top:5px;padding-bottom:5px;}
+	.infotable{color:#fff;font-size:0.8em;margin-left:5%;}
+	.infotable td{padding-top:4px !important;padding-bottom:4px !important;}
 }
 @media only screen and (min-device-height : 601px) and (max-device-height : 660px){
-	.infotable{width:100%;color:#fff;font-size:0.8em;}
+	.infotable{color:#fff;font-size:0.9em;}
+	.infotable td{padding-top:6px !important;padding-bottom:6px !important;}
 }
 
 
@@ -48,7 +51,15 @@ p.line{width:100%;height:1px;background-color:#fff;margin:15px 0;}
 .navbtncon li{float:left;width:26.6%;height:100%;text-align:center;display:table-cell;background-color:#a51c30;color:#fff;}
 .navbtncon li.margin{margin:0 10%;}
 
-.button{width:90%;color:#fff;margin-left:5%;}
+.btncon{overflow:hidden;}
+.checkbtn{width:30%;line-height:25px;color:#fff;background:#a51c30 url("../img/checkbg.png") no-repeat 20% center;background-size:auto 60%;border:solid 1px #a51c30;float:left;margin-left:15%;}
+.checkbtn b{margin-left:42%;}
+.checkbtn a{display:block;width:100%;width:100%;color:#fff;text-decoration:none;}
+.checkbtn a:hover{color:#fff;text-decoration:none;}
+.checkbtn a:link{color:#fff;text-decoration:none;}
+
+.zanbtn{width:30%;line-height:25px;color:#a51c30;background:url("../img/zanbg.png") no-repeat 20% center;background-size:auto 60%;border:solid 1px #a51c30;float:right;margin-right:15%;}
+.zanbtn b{margin-left:42%;}
 
 .up-fadeout {
 	transform-origin:50% 100%;

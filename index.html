@@ -47,9 +47,9 @@
 				<div class="arrowcon uparrow"><span class="glyphicon glyphicon-menu-up"></span></div>
 					<div ng-repeat="o in tsdatas" class="item" ng-class="{'currentpage':o.curr,'otherpage':!o.curr}" index="{{$index}}">
 						<img src="{{o.placeimgs[0]}}" style="width:100%;"/>
-						<table class="table infotable" cellpadding="0" cellspacing="0" style="color:#{{o.bgc}}">
-							<tr><td class="title">线路名称：</td><td class="content">{{o.name}}</td></tr>
-							<tr><td class="title">最大特色：</td><td class="content">{{o.features}}</td></tr>
+						<h2 class="routename">{{o.name}}</h2>
+						<table class="table infotable" cellpadding="0" cellspacing="0">
+							<tr><td class="title" style="border:none;">最大特色：</td><td class="content" style="border:none;">{{o.features}}</td></tr>
 							<tr><td class="title">适合年龄：</td><td class="content">{{o.agedesc}}</td></tr>
 							<tr><td class="title">游学地点：</td><td class="content">{{o.placedesc}}</td></tr>
 							<tr><td class="title">特色主题：</td><td class="content">{{o.topicdesc}}</td></tr>
@@ -58,7 +58,14 @@
 							<tr><td class="title">价格范围：</td><td class="content">{{o.price}}</td></tr>
 							</tr>
 						</table>
-						<button class="btn button" style="background-color:#{{o.bgc}}"><b>查看</b></button>
+						
+						
+						
+						<div class="btncon">
+							<div class="checkbtn"><a href="{{o.link}}"><b>查看</b></a></div>
+							<div class="zanbtn" ng-click="zan(o)"><b>点赞</b></div>
+						</div>
+						<!--<button class="btn button" style="background-color:#{{o.bgc}}"><b>查看</b></button>-->
 					</div>
 				
 				<!--
@@ -99,11 +106,26 @@
 					 * 
 					 * */
 					$rs.infodata=[
-						{"curr":true,"bgc":"004787","name":"美国西海岸科技创新课程","features":"我是特色我是特色1","age":1,"agedesc":"10~15岁","place":5,"placedesc":"纽约","placeimgs":["img/ts1.jpg"],"topic":2,"topicdesc":"我是主题我是主题1","agency":"我是机构我是机构1","date":"2015年12月31日","price":"10,000~50,000(RMB)"},
-						{"curr":false,"bgc":"00a0c2","name":"精英名校预备课程","features":"我是特色我是特色2","age":2,"agedesc":"15~18岁","place":4,"placedesc":"墨尔本","placeimgs":["img/ts2.jpg"],"topic":4,"topicdesc":"我是主题我是主题2","agency":"我是机构我是机构2","date":"2015年12月31日","price":"10,000~50,000(RMB)"},
-						{"curr":false,"bgc":"00a74d","name":"佛罗里达户外探索课程","features":"我是特色我是特色3","age":3,"agedesc":"18~22岁","place":3,"placedesc":"东京","placeimgs":["img/ts3.jpg"],"topic":1,"topicdesc":"我是主题我是主题3","agency":"我是机构我是机构3","date":"2015年12月31日","price":"10,000~50,000(RMB)"},
-						{"curr":false,"bgc":"a8171a","name":"哥伦比亚大学暑期学术课程","features":"我是特色我是特色4","age":4,"agedesc":"20~30岁","place":2,"placedesc":"洛杉矶","placeimgs":["img/ts4.jpg"],"topic":3,"topicdesc":"我是主题我是主题4","agency":"我是机构我是机构4","date":"2015年12月31日","price":"10,000~50,000(RMB)"},
-						{"curr":false,"bgc":"6a59a7","name":"子午线中心全球领导力课程","features":"我是特色我是特色5","age":5,"agedesc":"10~15岁","place":1,"placedesc":"纽约","placeimgs":["img/ts5.jpg"],"topic":5,"topicdesc":"我是主题我是主题5","agency":"我是机构我是机构5","date":"2015年12月31日","price":"10,000~50,000(RMB)"}
+						{"curr":true,"bgc":"004787","name":"美国西海岸科技创新课程",
+							"features":"我是特色我是特色1","age":1,"agedesc":"10~15岁","place":5,"placedesc":"纽约",
+							"placeimgs":["img/ts1.jpg"],"topic":2,"topicdesc":"我是主题我是主题1","agency":"我是机构我是机构1",
+							"date":"2015年12月31日","price":"10,000~50,000(RMB)","link":"#"},
+						{"curr":false,"bgc":"00a0c2","name":"精英名校预备课程",
+							"features":"我是特色我是特色2","age":2,"agedesc":"15~18岁","place":4,"placedesc":"墨尔本",
+							"placeimgs":["img/ts2.jpg"],"topic":4,"topicdesc":"我是主题我是主题2","agency":"我是机构我是机构2",
+							"date":"2015年12月31日","price":"10,000~50,000(RMB)","link":"#"},
+						{"curr":false,"bgc":"00a74d","name":"佛罗里达户外探索课程",
+							"features":"我是特色我是特色3","age":3,"agedesc":"18~22岁","place":3,"placedesc":"东京",
+							"placeimgs":["img/ts3.jpg"],"topic":1,"topicdesc":"我是主题我是主题3","agency":"我是机构我是机构3",
+							"date":"2015年12月31日","price":"10,000~50,000(RMB)","link":"#"},
+						{"curr":false,"bgc":"a8171a","name":"哥伦比亚大学暑期学术课程",
+							"features":"我是特色我是特色4","age":4,"agedesc":"20~30岁","place":2,"placedesc":"洛杉矶",
+							"placeimgs":["img/ts4.jpg"],"topic":3,"topicdesc":"我是主题我是主题4","agency":"我是机构我是机构4",
+							"date":"2015年12月31日","price":"10,000~50,000(RMB)","link":"#"},
+						{"curr":false,"bgc":"6a59a7","name":"子午线中心全球领导力课程",
+							"features":"我是特色我是特色5","age":5,"agedesc":"10~15岁","place":1,"placedesc":"纽约",
+							"placeimgs":["img/ts5.jpg"],"topic":5,"topicdesc":"我是主题我是主题5","agency":"我是机构我是机构5",
+							"date":"2015年12月31日","price":"10,000~50,000(RMB)","link":"#"}
 					];
 					$rs.tabs=[
 						{"text":"适合年龄","type":"age","isActive":true},
@@ -139,7 +161,6 @@
 								$(".routecon").removeClass("revert").removeAttr("style");
 							}
 						}
-						
 					}
 					
 					$(".routecon").bind("customevent",function(event,index,dir){
@@ -159,9 +180,7 @@
 						$.tsdatas=sortbycata(type,$s.tsdatas);
 						angular.forEach($s.tsdatas,function(v,i){if(i){v.curr=false}else{v.curr=true;}});
 						$s.$apply();
-					})
-					
-					
+					});
 				}]);
 
 				
@@ -170,40 +189,7 @@
 				var st,et=0;
 				var xdeg=0,ztrnas=0;
 				var tarindex=0;
-				$(".routecon").bind("touchstart",function(event){
-					var tar=$(this);
-					var e=event.originalEvent;
-					var tl=e.changedTouches;
-					tarindex=$(event.target).parents(".item").attr("index");
-					if(tarindex===undefined){
-						tarindex=$(event.target).attr("index");
-					}
-					
-					tarindex=parseInt(tarindex)
-					if(tarindex){
-						if(tarindex<4){
-							$(".contentcon .routecon .uparrow").show();
-							$(".contentcon .routecon .downarrow").show();
-						}else{
-							$(".contentcon .routecon .uparrow").show();
-						}
-					}else{
-						$(".contentcon .routecon .downarrow").show();
-						
-					}
-					
-					
-					st=new Date().valueOf();
-					if(tl.length==1){
-						cx=sx=tl[0].clientX;
-						cy=sy=tl[0].clientY;
-						
-						tar.bind("touchmove",stopEvent);
-						tar.bind("touchend",touchendFunc);
-					}else{
-						//tar.unbind("touchmove").unbind("touchend");
-					}
-				});
+				
 				
 				function touchendFunc(event){
 					var tar=$(this);
@@ -274,7 +260,6 @@
 				
 				
 				function sortbycata(type,data){
-					console.log(data)
 					for(var i=0;i<(data.length-1);i++){
 						for(var j=1;j<(data.length-i);j++){
 							var _l=parseInt(data[j-1][type]);
@@ -295,11 +280,57 @@
 				
 				
 				$(document).ready(function(){
-					var tabs=$(".navbtncon li").css("line-height",(document.documentElement.clientHeight*0.05)+"px");
+					var wh=document.documentElement.clientHeight
+					var tabs=$(".navbtncon li").css("line-height",(wh*0.05)+"px");
+					var tabcon=$(".navbtncon");
+					$(".checkbtn,.zanbbtn").css("line-height",(wh*0.05)+"px");
+					if(wh>500){
+						$(".contentcon .routecon").css({"height":(wh-tabcon.outerHeight())+"px","top":tabcon.outerHeight()+"px"});
+						$(".routecon").bind("touchstart",function(event){
+							var tar=$(this);
+							var e=event.originalEvent;
+							var tl=e.changedTouches;
+							tarindex=$(event.target).parents(".item").attr("index");
+							if(tarindex===undefined){
+								tarindex=$(event.target).attr("index");
+							}
+							
+							tarindex=parseInt(tarindex)
+							if(tarindex){
+								if(tarindex<4){
+									$(".contentcon .routecon .uparrow").show();
+									$(".contentcon .routecon .downarrow").show();
+								}else{
+									$(".contentcon .routecon .uparrow").show();
+								}
+							}else{
+								$(".contentcon .routecon .downarrow").show();	
+							}
+							st=new Date().valueOf();
+							if(tl.length==1){
+								cx=sx=tl[0].clientX;
+								cy=sy=tl[0].clientY;
+								
+								tar.bind("touchmove",stopEvent);
+								tar.bind("touchend",touchendFunc);
+							}else{
+								//tar.unbind("touchmove").unbind("touchend");
+							}
+						});
+					}else{
+						setTimeout(function(){
+							var con=$(".contentcon .routecon");
+							var items=$(".item",$(".contentcon .routecon")).css({"position":"relative","height":"auto","padding-bottom":20}).removeClass("otherpage").addClass("currentpage");
+							//alert(items.outerHeight())
+							//alert(items.outerHeight()*items.length)
+							//con.height((wh-tabcon.outerHeight())*items.length)
+							//$(".item",$(".contentcon .routecon")).css("position","relative");
+							
+						},500)
+					}
 					
-					//$(".covercon").bind("touchmove",function(e){
-						//e.stopPropagation();
-					//});
+					
+
 					
 					$(".routetab").each(function(i,v){
 						var tar=$(this);
