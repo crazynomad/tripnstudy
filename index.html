@@ -48,11 +48,12 @@
 				<li ng-repeat="o in tabs" ng-class="{'active':o.isActive,' ':o.isActive}" class="{{o.class}}" ng-click="sortbytype(o)">{{o.text}}</li>
 		</ul>
 		<div class="contentcon" >
-			
 			<div class="routecon">
 				<div class="arrowcon uparrow"><span class="glyphicon glyphicon-menu-up"></span></div>
 					<div ng-repeat="o in tsdatas" class="item" ng-class="{'currentpage':o.curr,'otherpage':!o.curr}" index="{{$index}}">
-						<img src="{{o.placeimgs[0]}}" style="width:100%;"/>
+						<div class="imgcon">
+							<img ng-src="{{o.placeimgs[0]}}" style="width:100%;"/>
+						</div>
 						<h2 class="routename">{{o.name}}</h2>
 						<table class="table infotable" cellpadding="0" cellspacing="0">
 							<tr><td class="title" style="border:none;">最大特色：</td><td class="content" style="border:none;">{{o.features}}</td></tr>
@@ -64,24 +65,13 @@
 							<tr><td class="title">价格范围：</td><td class="content">{{o.price}}</td></tr>
 							</tr>
 						</table>
-						
-						
-						
+
 						<div class="btncon">
 							<div class="checkbtn"><a href="{{o.link}}"><b>查看</b></a></div>
 							<div class="zanbtn" ng-click="zan(o)"><b>点赞</b></div>
 						</div>
 						<!--<button class="btn button" style="background-color:#{{o.bgc}}"><b>查看</b></button>-->
 					</div>
-				
-				<!--
-				<div class="item currentpage" style="background-color:#004787;"></div>
-				<div class="item otherpage" style="background-color:#77b7ff;"></div>
-				<div class="item otherpage" style="background-color:#ca77ff;"></div>
-				<div class="item otherpage" style="background-color:#ff77b7;"></div>
-				<div class="item otherpage" style="background-color:#ff8d77;"></div>
-				-->
-				
 				<div class="arrowcon downarrow"><i class="glyphicon glyphicon-menu-down"></i></div>
 			</div>
 		</div>
@@ -112,25 +102,25 @@
 					 * 
 					 * */
 					$rs.infodata=[
-						{"curr":true,"bgc":"004787","name":"美国西海岸科技创新课程",
+						{"curr":true,"bgc":"004787","name":"美国西海岸科技创新课程","imgurl":["img/ts1.jpg"],
 							"features":"我是特色我是特色1","age":1,"agedesc":"10~15岁","place":5,"placedesc":"纽约",
-							"placeimgs":["img/ts1.jpg"],"topic":2,"topicdesc":"我是主题我是主题1","agency":"我是机构我是机构1",
+							"placeimgs":["img/transparent.png"],"topic":2,"topicdesc":"我是主题我是主题1","agency":"我是机构我是机构1",
 							"date":"2015年12月31日","price":"10,000~50,000(RMB)","link":"#"},
-						{"curr":false,"bgc":"00a0c2","name":"精英名校预备课程",
+						{"curr":false,"bgc":"00a0c2","name":"精英名校预备课程","imgurl":["img/ts2.jpg"],
 							"features":"我是特色我是特色2","age":2,"agedesc":"15~18岁","place":4,"placedesc":"墨尔本",
-							"placeimgs":["img/ts2.jpg"],"topic":4,"topicdesc":"我是主题我是主题2","agency":"我是机构我是机构2",
+							"placeimgs":["img/transparent.png"],"topic":4,"topicdesc":"我是主题我是主题2","agency":"我是机构我是机构2",
 							"date":"2015年12月31日","price":"10,000~50,000(RMB)","link":"#"},
-						{"curr":false,"bgc":"00a74d","name":"佛罗里达户外探索课程",
+						{"curr":false,"bgc":"00a74d","name":"佛罗里达户外探索课程","imgurl":["img/ts3.jpg"],
 							"features":"我是特色我是特色3","age":3,"agedesc":"18~22岁","place":3,"placedesc":"东京",
-							"placeimgs":["img/ts3.jpg"],"topic":1,"topicdesc":"我是主题我是主题3","agency":"我是机构我是机构3",
+							"placeimgs":["img/transparent.png"],"topic":1,"topicdesc":"我是主题我是主题3","agency":"我是机构我是机构3",
 							"date":"2015年12月31日","price":"10,000~50,000(RMB)","link":"#"},
-						{"curr":false,"bgc":"a8171a","name":"哥伦比亚大学暑期学术课程",
+						{"curr":false,"bgc":"a8171a","name":"哥伦比亚大学暑期学术课程","imgurl":["img/ts4.jpg"],
 							"features":"我是特色我是特色4","age":4,"agedesc":"20~30岁","place":2,"placedesc":"洛杉矶",
-							"placeimgs":["img/ts4.jpg"],"topic":3,"topicdesc":"我是主题我是主题4","agency":"我是机构我是机构4",
+							"placeimgs":["img/transparent.png"],"topic":3,"topicdesc":"我是主题我是主题4","agency":"我是机构我是机构4",
 							"date":"2015年12月31日","price":"10,000~50,000(RMB)","link":"#"},
-						{"curr":false,"bgc":"6a59a7","name":"子午线中心全球领导力课程",
+						{"curr":false,"bgc":"6a59a7","name":"子午线中心全球领导力课程","imgurl":["img/ts5.jpg"],
 							"features":"我是特色我是特色5","age":5,"agedesc":"10~15岁","place":1,"placedesc":"纽约",
-							"placeimgs":["img/ts5.jpg"],"topic":5,"topicdesc":"我是主题我是主题5","agency":"我是机构我是机构5",
+							"placeimgs":["img/transparent.png"],"topic":5,"topicdesc":"我是主题我是主题5","agency":"我是机构我是机构5",
 							"date":"2015年12月31日","price":"10,000~50,000(RMB)","link":"#"}
 					];
 					$rs.tabs=[
@@ -158,13 +148,24 @@
 									$s.tsdatas=sortbycata(o.type,$s.tsdatas);
 									angular.forEach($s.tsdatas,function(v,i){if(i){v.curr=false}else{v.curr=true;}});
 									$s.$apply();
-									var items=$(".routecon .item").removeClass("currentpage").remove("otherpage");
-									angular.forEach($s.tsdatas,function(v,i){if(i){$(items[i]).addClass("otherpage");}else{$(items[i]).addClass("currentpage");}});
+									//var items=$(".routecon .item").removeClass("currentpage").remove("otherpage");
+									//angular.forEach($s.tsdatas,function(v,i){if(i){$(items[i]).addClass("otherpage");}else{$(items[i]).addClass("currentpage");}});
 								}
 								$(".routecon").css("-webkit-transform","rotateY("+testdeg+"deg)");
 								requestAnimFrame(testrotate);
 							}else{
-								$(".routecon").removeClass("revert").removeAttr("style");
+								var con=$(".routecon").removeClass("revert");
+								var _style=con.attr("style").replace(/ /g,"").split(";");
+								for(var i=0;i<_style.length;i++){
+									var _p=_style[i];
+									if(_p.length){
+										_ps=_p.split(":");
+										if(_ps[0].indexOf("transform")>=0){
+											_ps[1]="rotateY(0)";
+										}
+										con.css(_ps[0],_ps[1]);
+									}
+								}
 							}
 						}
 					}
@@ -184,8 +185,18 @@
 							$s.$apply();	
 					}).bind("entercontent",function(event,type){
 						$.tsdatas=sortbycata(type,$s.tsdatas);
-						angular.forEach($s.tsdatas,function(v,i){if(i){v.curr=false}else{v.curr=true;}});
-						$s.$apply();
+						angular.forEach($s.tsdatas,function(v,i){
+							for(var j=0;j<v.imgurl.length;j++){
+								$("<img src="+v.imgurl[j]+"  />").load(function(e){
+									if(v.placeimgs[0].indexOf("transparent")>0){
+										v.placeimgs=[];
+									}
+									v.placeimgs.push(this.src);
+									$s.$apply();
+								});
+							}
+							if(i){v.curr=false}else{v.curr=true;}
+						});
 					});
 				}]);
 
@@ -290,10 +301,10 @@
 					var ww=document.documentElement.clientWidth;
 					var tabs=$(".navbtncon li").css("line-height",(wh*0.05)+"px");
 					var tabcon=$(".navbtncon");
-					$(".checkbtn,.zanbbtn").css("line-height",(wh*0.05)+"px");
+					$(".checkbtn,.zanbtn").css("line-height",(wh*0.05)+"px");
 					if(wh>500){
 						$(".contentcon .routecon").css({"height":(wh-tabcon.outerHeight())+"px","top":tabcon.outerHeight()+"px"});
-						$(".routecon").bind("touchstart",function(event){
+						$(".routecon").on("touchstart",".item",function(event){
 							var tar=$(this);
 							var e=event.originalEvent;
 							var tl=e.changedTouches;
@@ -301,8 +312,7 @@
 							if(tarindex===undefined){
 								tarindex=$(event.target).attr("index");
 							}
-							
-							tarindex=parseInt(tarindex)
+							tarindex=parseInt(tarindex);
 							if(tarindex){
 								if(tarindex<4){
 									$(".contentcon .routecon .uparrow").show();
@@ -326,6 +336,7 @@
 						});
 					}else{
 						setTimeout(function(){
+							$(".navbtncon").css("position","fixed")
 							var con=$(".contentcon .routecon");
 							var items=$(".item",$(".contentcon .routecon")).css({"position":"relative","height":"auto","padding-bottom":20}).removeClass("otherpage").addClass("currentpage");
 							//alert(items.outerHeight())
@@ -358,11 +369,18 @@
 					});
 					
 					
-					$(".coverlayer").click(function(){$(this).hide();$(".qrcode").hide();});
-					$(".qrcode").click(function(){$(this).hide();$(".coverlayer").hide();});
+					
 					$("#addbtn").click(function(){
 						$(".coverlayer").height($(".covercon").outerHeight()).show();
-						$(".qrcode").css({"top":(wh-0.4*ww)/2}).show();
+						var qr=$(".qrcode");
+						qr.css({"top":(wh-0.2*ww)/2,"left":"50%","width":0}).show().animate({"top":(wh-0.4*ww)/2,"width":"40%","left":"30%"},{ 
+						    easing: 'easeOutExpo', 
+						    duration: 500, 
+						    complete:function(){
+						    	$(".coverlayer").unbind().click(function(){$(this).hide();$(".qrcode").hide();});
+								$(".qrcode").unbind().click(function(){$(this).hide();$(".coverlayer").hide();});
+						    } 
+						});
 					});
 				});
 			
