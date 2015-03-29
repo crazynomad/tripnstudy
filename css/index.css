@@ -54,9 +54,10 @@ table.infotable{color:#333;width:90%;margin-left:5%;}
 }
 
 
-.navbtncon{width:100%;padding:5% 10%;position:absolute;top:0px;z-index:9999;background-color:#f2f2f2;list-style:none;display:none;}
-.navbtncon li{float:left;width:26.6%;height:100%;text-align:center;display:table-cell;background-color:#a51c30;color:#fff;}
-.navbtncon li.margin{margin:0 10%;}
+.navbtncon{width:100%;position:absolute;top:0px;z-index:9999;background-color:#a51c30;list-style:none;display:none;}
+.navbtncon li{float:left;position:relative;width:33.3%;height:100%;text-align:center;display:table-cell;background-color:#a51c30;color:#fff;padding:5% 0;}
+.navbtncon li .splitline{position:absolute;width:1px;height:50%;left:0;top:25%;background-color:#800c1f;}
+.navbtncon li.active{background-color:#800c1f;}
 
 .btncon{overflow:hidden;letter-spacing:0.5em;}
 .checkbtn{width:30%;line-height:25px;color:#fff;background:#a51c30 url("../img/checkbg.png") no-repeat 20% center;background-size:auto 60%;border:solid 1px #a51c30;float:left;margin-left:15%;}
