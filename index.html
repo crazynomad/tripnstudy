@@ -13,7 +13,7 @@
 		<div class="covercon" style="position:absolute;top:0px;z-index:999;">
 			<div class="coverlayer"></div>
 			<img class="qrcode" src="img/qrcode.jpg" />
-			<a href="http://www.baidu.com">
+			<a href="http://mp.weixin.qq.com/s?__biz=MjM5NjI4MDU4NA==&mid=208549061&idx=1&sn=f31898e8d8600ff081d29715cbffe650&scene=1&key=b2574200810f04e83a5c094dbb5bd76a431c334e328fdcbfc0a47200eec196e9c9befc4064a98da1e5ed64062ac6ed72&ascene=1&uin=ODkwMDg4OTIw&devicetype=webwx&version=70000001&pass_ticket=aBWzGKsv8P2XgHGnq4s1kEOiSiKTn5o52uMkvknz9aMOhRB91JDxsdhJZrLZ3bFk">
 			<h1>2015年20个</h1>
 			<h1>最好的美国游学夏令营</h1>
 			<p class="line"></p>
@@ -60,13 +60,13 @@
 						</div>
 						<h2 class="routename"><b>{{o.name}}</b></h2>
 						<table class="table infotable" cellpadding="0" cellspacing="0">
-							<tr><td class="title" style="border:none;">特色：</td><td class="content" style="border:none;">{{o.features}}</td></tr>
-							<tr><td class="title">年龄 ：</td><td class="content">{{o.agedesc}}</td></tr>
-							<tr><td class="title">地点 ：</td><td class="content">{{o.placedesc}}</td></tr>
-							<tr><td class="title">主题 ：</td><td class="content">{{o.topicdesc}}</td></tr>
-							<tr><td class="title">主办 ：</td><td class="content">{{o.agency}}</td></tr>
-							<tr><td class="title">日期 ：</td><td class="content">{{o.date}}</td></tr>
-							<tr><td class="title">价格 ：</td><td class="content">{{o.price}}</td></tr>
+							<tr><td class="title" style="border:none;">特色</td><td class="content" style="border:none;">：{{o.features}}</td></tr>
+							<tr><td class="title">年龄</td><td class="content">：{{o.agedesc}}</td></tr>
+							<tr><td class="title">地点</td><td class="content">：{{o.placedesc}}</td></tr>
+							<tr><td class="title">主题</td><td class="content">：{{o.topicdesc}}</td></tr>
+							<tr><td class="title">主办</td><td class="content">：{{o.agency}}</td></tr>
+							<tr><td class="title">日期</td><td class="content">：{{o.date}}</td></tr>
+							<tr><td class="title">价格</td><td class="content">：{{o.price}}</td></tr>
 							</tr>
 						</table>
 
@@ -224,14 +224,14 @@
 							pcon.html(ocon.html());
 							$(".preroutecon .arrowcon").remove();
 							ocon.css("left",0);
-							pcon.css("left","100%");
+							pcon.css("left","100%").show();
 							ii--;
 							$s.tsdatas=sortbycata(io[(""+(ii))],$s.tsdatas);
 							$s.$apply();
 							$(".contentcon").css({"left":"-100%"}).animate({"left":0},function(){
 								ocon.css("left",0);
 								$(".contentcon").css("left",0);
-								
+								pcon.hide();
 								ia=false;
 							});
 						}
@@ -244,13 +244,14 @@
 							pcon.html(ocon.html());
 							$(".preroutecon .arrowcon").remove();
 							ocon.css("left","100%");
+							pcon.show();
 							ii++;
 							$s.tsdatas=sortbycata(io[(""+(ii))],$s.tsdatas);
 							$s.$apply();
 							$(".contentcon").css({"left":0}).animate({"left":"-100%"},function(){
 								ocon.css("left",0);
 								$(".contentcon").css("left",0);
-								pcon.css("left","100%");
+								pcon.css("left","100%").hide();
 								ia=false;
 							});
 						}
@@ -418,7 +419,7 @@
 							var nav=$(".navbtncon").css("position","fixed")
 							var con=$(".contentcon .routecon");
 							con.css({"top":nav.outerHeight()});
-							$(".contentcon .preroutecon").css({"top":nav.outerHeight()});
+							$(".contentcon .preroutecon").css({"top":nav.outerHeight()}).hide();
 							var items=$(".item",$(".contentcon .routecon")).css({"padding-bottom":20}).removeClass("otherpage").addClass("currentpage");
 							
 							
