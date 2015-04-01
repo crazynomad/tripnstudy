@@ -16,9 +16,9 @@ img.qrcode{position:fixed;width:40%;left:30%;top:0;z-index:9999;display:none;}
 
 .routetab{border:solid 2px #fff;margin-bottom:40px;position:relative;}
 .routetab table{width:80%;margin:10px 10% 30px;text-align:center;color:#fff;}
-.routetab table td{padding:5px 0}
-.routetab table td span{float:left;}
-
+.routetab table td{padding:5px 0;text-decoration:underline;}
+.routetab table td span{float:left;text-decoration:underline;}
+.routetab table td.active{background-color:#fff;color:#a51c30;}
 
 .checkbtncon{padding:0 20px;position:absolute;bottom:-13px;background-color:#a51c30;}
 .checkbtncon b{line-height:26px;background-color:#fff;color:#a51c30;padding:0px 15px;display:block;}
