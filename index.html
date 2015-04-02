@@ -13,7 +13,7 @@
 		<div class="covercon" style="position:absolute;top:0px;z-index:999;">
 			<div class="coverlayer"></div>
 			<img class="qrcode" src="img/qrcode.jpg" />
-			<a href="http://mp.weixin.qq.com/s?__biz=MjM5NjI4MDU4NA==&mid=208549061&idx=1&sn=f31898e8d8600ff081d29715cbffe650&scene=1&key=b2574200810f04e83a5c094dbb5bd76a431c334e328fdcbfc0a47200eec196e9c9befc4064a98da1e5ed64062ac6ed72&ascene=1&uin=ODkwMDg4OTIw&devicetype=webwx&version=70000001&pass_ticket=aBWzGKsv8P2XgHGnq4s1kEOiSiKTn5o52uMkvknz9aMOhRB91JDxsdhJZrLZ3bFk">
+			<a class="titlelink" href="http://mp.weixin.qq.com/s?__biz=MjM5NjI4MDU4NA==&mid=208549061&idx=1&sn=f31898e8d8600ff081d29715cbffe650&scene=1&key=b2574200810f04e83a5c094dbb5bd76a431c334e328fdcbfc0a47200eec196e9c9befc4064a98da1e5ed64062ac6ed72&ascene=1&uin=ODkwMDg4OTIw&devicetype=webwx&version=70000001&pass_ticket=aBWzGKsv8P2XgHGnq4s1kEOiSiKTn5o52uMkvknz9aMOhRB91JDxsdhJZrLZ3bFk">
 			<h1>2015年20个</h1>
 			<h1>最好的美国游学夏令营</h1>
 			<p class="line"></p>
@@ -22,16 +22,16 @@
 			</div>
 			</a>
 			<div class="routetab"  type="age">
-				<table cellpadding="0" cellspacing="0"><tr><td colspan="6" style="text-decoration:none;">6-60岁 自由选择</td></tr><td>幼儿园</td><td>小学</td><td>初中</td><td>高中</td><td>亲子</td><td>成人</td></tr></table>
+				<table cellpadding="0" cellspacing="0"><tr><td class="headtitle" colspan="6">6-60岁 自由选择</td></tr><td>幼儿园</td><td>小学</td><td>初中</td><td>高中</td><td>亲子</td><td>成人</td></tr></table>
 				<span class="checkbtncon"><b>查看</b></span>	
 			</div>
 			<div class="routetab" type="place">
-				<table cellpadding="0" cellspacing="0"><tr><td colspan="3" style="text-decoration:none;">20个 游学地点</td></tr><tr><td>哈佛大学</td><td>斯坦福大学</td><td>哥伦比亚大学</td></tr>
+				<table cellpadding="0" cellspacing="0"><tr><td class="headtitle" colspan="3">20个 游学地点</td></tr><tr><td>哈佛大学</td><td>斯坦福大学</td><td>哥伦比亚大学</td></tr>
 					<tr><td colspan="3"><span style="width:50%;">硅谷</span><span style="width:50%;">白宫</span></td></tr></table>
 				<span class="checkbtncon"><b>查看</b></span>
 			</div>
 			<div class="routetab"  type="topic">
-				<table cellpadding="0" cellspacing="0"><tr><td colspan="3" style="text-decoration:none;">26种 特色主题</td></tr><tr><td>英语提高</td><td>科学学习</td><td>留学准备</td></tr>
+				<table cellpadding="0" cellspacing="0"><tr><td class="headtitle" colspan="3">26种 特色主题</td></tr><tr><td>英语提高</td><td>科学学习</td><td>留学准备</td></tr>
 					<tr><td colspan="3"><span style="width:50%;">亲子</span><span style="width:50%;">专项</span></td></tr></table>
 				<span class="checkbtncon"><b>查看</b></span>
 			</div>
@@ -79,6 +79,11 @@
 				<div class="arrowcon downarrow"><i class="glyphicon glyphicon-menu-down"></i></div>
 			</div>
 		</div>
+		
+		<div style="display:none">
+			<img src="https://mmbiz.qlogo.cn/mmbiz/u3O3jxfyE9BbaJYxtG1IxQfgnicPa4tVTGagqxJkhq1aFxpIp06qv9icfwkeibIMqicqHIr3ic1Zcicttf425WnicBvmA/0" style="max-height: 0px; margin:0px; position: absolute;"/>
+		</div>
+		
 		<script type="text/javascript" src="scripts/jquery.min.js"></script>
 		<script type="text/javascript" src="scripts/jgestures.min.js"></script>
 		<script type="text/javascript" src="scripts/angular-1.2.28.min.js"></script>
@@ -106,6 +111,7 @@
 					 * 
 					 * 
 					 * */
+					/*
 					$rs.infodata=[
 						{"curr":true,"bgc":"004787","name":"美国西海岸科技创新课程","imgurl":["img/ts1.jpg"],
 							"features":"我是特色我是特色1","age":1,"agedesc":"10~15岁","place":5,"placedesc":"纽约",
@@ -128,6 +134,33 @@
 							"placeimgs":["img/transparent.png"],"topic":5,"topicdesc":"我是主题我是主题5","agency":"我是机构我是机构5",
 							"host":1,"date":"2015年12月31日","price":"10,000~50,000(RMB)","link":"#","read":88888}
 					];
+					*/
+					$rs.infodata=[
+	{"curr":true,"bgc":"004787","name":"哥伦比亚大学30天学习","imgurl":["img/ts1.jpg"],
+		"features":"30天，超长常青藤实地学习、生活体验；住哥伦比亚大学学生宿舍；所有哥伦比亚设施免费使用；实战百所大学招生会","age":1,"agedesc":"16-18岁","place":5,"placedesc":"纽约、哥伦比亚大学、耶鲁大学、普林斯顿大学、宾夕法尼亚大学",
+		"placeimgs":["img/transparent.png"],"topic":2,"topicdesc":"常青藤校专项学习（经济、金融、科技创新、数学与工程、演讲与辩论、美国大学申请与SAT）、名校生活体验、观光旅行","agency":"环识国际",
+		"host":4,"date":"2015年7月12日","price":"69800(RMB)","link":"#","read":8},
+	{"curr":false,"bgc":"00a0c2","name":"西海岸科技创新","imgurl":["img/ts2.jpg"],
+		"features":"斯坦福、NASA实验室、太阳观测站、科学院、Discovery等权威活动","age":2,"agedesc":"14-18岁岁","place":4,"placedesc":"旧金山、斯坦福、San Diego、迪士尼、环球影城",
+		"placeimgs":["img/transparent.png"],"topic":4,"topicdesc":"科技创新、英语学习、观光旅行","agency":"环识国际",
+		"host":2,"date":"暂缺","price":"暂缺","link":"#","read":88},
+	{"curr":false,"bgc":"00a74d","name":"东海岸亲子团","imgurl":["img/ts3.jpg"],
+		"features":"私立寄宿制高中考察、投资移民讲座、哈佛耶鲁MIKT名校参观、顶级SPA享受","age":3,"agedesc":"12-16岁","place":3,"placedesc":"华盛顿、白宫、纽约、波士顿、哈佛大学、耶鲁大学、麻省理工学院",
+		"placeimgs":["img/transparent.png"],"topic":1,"topicdesc":"学校考察、投资移民、观光旅行","agency":"环识国际",
+		"host":5,"date":"暂缺","price":"暂缺","link":"#","read":888},
+	{"curr":false,"bgc":"a8171a","name":"佛罗里达","imgurl":["img/ts4.jpg"],
+		"features":"国内罕见的户外拓展课程、全球最大的迪士尼乐园Y.E.S青少年领导力课程","age":4,"agedesc":"暂缺","place":2,"placedesc":"暂缺",
+		"placeimgs":["img/transparent.png"],"topic":3,"topicdesc":"户外拓展、领导力、环境保护、观光旅行","agency":"环识国际",
+		"host":3,"date":"暂缺","price":"暂缺","link":"#","read":8888},
+	{"curr":false,"bgc":"6a59a7","name":"洛杉矶","imgurl":["img/ts5.jpg"],
+		"features":"暂缺","age":5,"agedesc":"10-14岁","place":1,"placedesc":"洛杉矶、旧金山、迪士尼、好莱坞",
+		"placeimgs":["img/transparent.png"],"topic":5,"topicdesc":"英语学习、观光旅行","agency":"英孚教育",
+		"host":1,"date":"2015年7月16日-8月5日日","price":"43397(RMB)","link":"#","read":88888},
+	{"curr":false,"bgc":"6a59a7","name":"纽约","imgurl":["img/ts5.jpg"],
+		"features":"暂缺","age":5,"agedesc":"9-13岁，14-18岁","place":1,"placedesc":"纽约、哈佛大学、麻省理工学院",
+		"placeimgs":["img/transparent.png"],"topic":5,"topicdesc":"英语学习、观光旅行","agency":"英孚教育",
+		"host":1,"date":"2015年7月中下旬","price":"暂缺","link":"#","read":88888}
+]
 					$rs.tabs=[
 						{"text":"年龄","type":"age","isActive":true,"index":0},
 						{"text":"地点","type":"place","isActive":false,"index":1},
@@ -212,8 +245,8 @@
 					var io={"0":"age","1":"place","2":"topic","3":"host","age":1,"place":2,"topic":3,"host":4};
 					var ii=0;
 					//ocon.bind("touchstart",function(){alert(ii)})
-					ocon.bind("swiperight",swipr).bind("swiperightup",swipr).bind("swiperightdown",swipr);
-					ocon.bind("swipeleft",swipl).bind("swipeleftup",swipl).bind("swipeleftdown",swipl);
+					//ocon.bind("swiperight",swipr).bind("swiperightup",swipr).bind("swiperightdown",swipr);
+					//ocon.bind("swipeleft",swipl).bind("swipeleftup",swipl).bind("swipeleftdown",swipl);
 					
 					
 					
@@ -254,22 +287,8 @@
 								pcon.css("left","100%").hide();
 								ia=false;
 							});
-						}
-						
+						}	
 					}
-					
-					/*
-					ocon.bind("touchstart",function(){
-						pcon.html(ocon.html());
-						$(".preroutecon .arrowcon").remove();
-						ocon.css("left","100%");
-						$s.tsdatas=sortbycata(io[(""+(ii+1))],$s.tsdatas);
-						angular.forEach($s.tsdatas,function(v,i){if(i){v.curr=false}else{v.curr=true;}});
-						$s.$apply();
-					});
-					*/
-					
-					
 				}]);
 				
 				
@@ -452,7 +471,12 @@
 						});
 					});
 					
-					$(".routetab table td").bind("touchstart",function(){$(this).addClass("active")}).bind("touchend",function(){$(this).removeClass("acrive")});
+					$(".routetab table td").each(function(i,v){
+						var tar=$(this);
+						if(!tar.hasClass("headtitle")){
+							tar.bind("touchstart",function(){$(this).addClass("active")}).bind("touchend",function(){$(this).removeClass("acrive")});
+						}
+					});
 					
 					
 					/*

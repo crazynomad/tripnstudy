@@ -9,7 +9,8 @@ p.line{width:100%;height:1px;background-color:#fff;margin:15px 0;}
 .tipcon{margin-bottom:20px;}
 .tipcon a{text-decoration:none;}
 img.qrcode{position:fixed;width:40%;left:30%;top:0;z-index:9999;display:none;}
-
+a.titlelink{text-decoration:none;}
+a.titlelink:hover{color:#a51c30;text-decoration:none;}
 
 .tipcon span{color:#fff;line-height:20px;margin-right:10px;vertical-align:middle;}
 .tipcon button{background:none;border:none;line-height:20px;border-radius:0;background-color:#32b332;color:#fff;padding:0 10px;vertical-align:middle;}
@@ -19,6 +20,7 @@ img.qrcode{position:fixed;width:40%;left:30%;top:0;z-index:9999;display:none;}
 .routetab table td{padding:5px 0;text-decoration:underline;}
 .routetab table td span{float:left;text-decoration:underline;}
 .routetab table td.active{background-color:#fff;color:#a51c30;}
+.routetab table td.headtitle{text-decoration:none;}
 
 .checkbtncon{padding:0 20px;position:absolute;bottom:-13px;background-color:#a51c30;}
 .checkbtncon b{line-height:26px;background-color:#fff;color:#a51c30;padding:0px 15px;display:block;}
