@@ -1,3 +1,19 @@
+/*
+ features:最大特色
+ age：年龄序列
+ agedesc：适合年龄
+ place：地点序列
+ placedesc：游学地点
+ placeimgs：地点图片集
+ topic：主题序列
+ topicdesc：特色主题
+ agency:主办机构
+ date:出发日期
+ price:价格范围
+ * 
+ * 
+ * */
+					
 var _infodata=[
 						{"curr":true,"bgc":"004787","name":"哥伦比亚大学30天学习","imgurl":["img/ts1.jpg"],
 							"features":"30天，超长常青藤实地学习、生活体验；住哥伦比亚大学学生宿舍；所有哥伦比亚设施免费使用；实战百所大学招生会","age":1,"agedesc":"16-18岁","place":5,"placedesc":"纽约、哥伦比亚大学、耶鲁大学、普林斯顿大学、宾夕法尼亚大学",

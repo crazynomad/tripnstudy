@@ -7,7 +7,7 @@ body{width:100%;height:100%;position:relative;}
 h1{font-size:24px;color:#fff;line-height:30px;}
 p.line{width:100%;height:1px;background-color:#fff;margin:5% 0;}
 .toppart{padding:5% 5% 0;}
-.tipcon{margin-bottom:5%;}
+.tipcon{margin-bottom:7%;}
 .tipcon a{text-decoration:none;}
 img.qrcode{position:fixed;width:40%;left:30%;top:0;z-index:9999;display:none;}
 a.titlelink{text-decoration:none;}
@@ -33,9 +33,9 @@ a.titlelink:hover{color:#a51c30;text-decoration:none;}
 
 
 .bottompart{color:#fff;padding-bottom:5%;}
-.bottompart p.titleline{width:100%;text-align:center;padding-top:5%;padding-bottom:0;}
-.bottompart p.splitline{background-color:#fff;width:90%;height:1px;padding:0;margin:5% auto;}
-.bottompart p{padding:6px 0;width:60%;margin:auto;text-align:center;}
+.bottompart p.titleline{width:100%;text-align:center;padding-top:3%;padding-bottom:0;}
+.bottompart p.splitline{background-color:#fff;width:90%;height:1px;padding:0;margin:3% auto;}
+.bottompart p{padding:5px 0;width:60%;margin:auto;text-align:center;}
 
 
 .contenthead{width:100%;text-align:center;background-color:#a51c30;position:fixed;top:0;left:0;z-index:9999;padding-top:5%;display:none;}
@@ -77,9 +77,9 @@ table.infotable td.content{padding-left:0;}
 
 
 .navbtncon{width:100%;background-color:#a51c30;}
-.navbtncon li{float:left;position:relative;width:25%;height:100%;text-align:center;display:table-cell;background-color:#f2f2f2;color:#a51c30;padding:0;border-top:solid 1px #aaa;border-bottom:solid 1px #aaa;}
+.navbtncon li{float:left;position:relative;width:25%;height:100%;text-align:center;display:table-cell;background-color:#f2f2f2;color:#a51c30;padding:0;border-bottom:solid 1px #aaa;}
 .navbtncon li .splitline{position:absolute;width:1px;height:100%;left:0;top:0;background-color:#aaa;}
-.navbtncon li.active{background-color:#a51c30;color:#f2f2f2;border-top:solid 1px #a51c30;border-bottom:solid 1px #a51c30;}
+.navbtncon li.active{background-color:#a51c30;color:#f2f2f2;border-bottom:solid 1px #a51c30;}
 
 .btncon{overflow:hidden;}
 .checkbtn{letter-spacing:0.5em;width:30%;line-height:25px;color:#fff;background:#a51c30 url("../img/checkbg.png") no-repeat 20% center;background-size:auto 60%;border:solid 1px #a51c30;float:left;margin-left:15%;}
