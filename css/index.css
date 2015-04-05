@@ -22,6 +22,7 @@ a.titlelink:hover{color:#a51c30;text-decoration:none;}
 
 .routetab table .active{background-color:#fff;color:#a51c30;}
 .routetab table td.headtitle{text-decoration:none;}
+.routetab table.placesite td.tabcell{width:33.3%;}
 .routetab table td.tabcell span{padding:3px 0;border-bottom:solid 1px #fff;}
 .routetab table td.colspan span{border-bottom:solid 1px #fff;padding:3px 0;}
 .routetab table td.colspan span.leftcell{margin-right:5%;}
